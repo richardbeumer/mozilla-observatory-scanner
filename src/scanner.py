@@ -14,7 +14,6 @@ def scan(site):
     log.info('Scanning: %s', site)
     response = requests.post(url=url, data=data)
     result = response.json()
-    print(result)
     if result.get('grade') == None:
         log.error('Scan for: %s failed with error: %s', site, result['error'])
         return result
@@ -47,10 +46,10 @@ def post_slack(data):
 
     slack_data = {'text': text}
 
-    response = requests.post(
+    requests.post(
         webhook_url, data=json.dumps(slack_data),
         headers={'Content-Type': 'application/json'}
     )
-    print(response.status_code)
 
 post_slack(get_grades())
+log.info("Scan Finished")
