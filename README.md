@@ -46,3 +46,4 @@ export SLACK_WEBHOOK=<your-slack-webhook>
 cd src
 python scanner.py
 ```
+
