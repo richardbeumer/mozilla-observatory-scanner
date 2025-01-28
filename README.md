@@ -16,7 +16,7 @@ pip install -r requirements.txt --no-cache-dir
 2. Set variables:
 
 ```
-export SITES='["sites", "to", "scan"]'k ge
+export SITES='["sites", "to", "scan"]'
 export SLACK_WEBHOOK=<your-slack-webhook>
 ```
 

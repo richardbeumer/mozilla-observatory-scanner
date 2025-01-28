@@ -7,12 +7,8 @@ log = Logger.get_logger(__name__)
 log.info('Scan Started')
 
 def scan(site):
-    url = "https://http-observatory.security.mozilla.org/api/v1/analyze?host=" + site
-    data = {}
-    data['rescan'] = 'true'
-    data['hidden'] = 'true'
     log.info('Scanning: %s', site)
-    response = requests.post(url=url, data=data)
+    response = requests.post("https://observatory-api.mdn.mozilla.net/api/v2/scan?host=" + site)
     result = response.json()
     if result.get('grade') == None:
         log.error('Scan for: %s failed with error: %s', site, result['error'])
